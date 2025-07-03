@@ -19,8 +19,8 @@ export default async function handler(req, res) {
       return res.status(400).json({ success: false, error: 'Thiếu thông tin người dùng hoặc lịch sử trò chuyện.' });
     }
 
-    const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
-    if (!OPENROUTER_API_KEY) {
+    const OPENROUTER_API_KEY2 = process.env.OPENROUTER_API_KEY2;
+    if (!OPENROUTER_API_KEY2) {
         return res.status(500).json({ success: false, error: 'API Key chưa được cấu hình.' });
     }
     
@@ -44,7 +44,7 @@ Quy tắc giao tiếp: Luôn ghi nhớ bối cảnh từ lịch sử trò chuy�
     const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
         method: 'POST',
         headers: {
-            'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+            'Authorization': `Bearer ${OPENROUTER_API_KEY2}`,
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
